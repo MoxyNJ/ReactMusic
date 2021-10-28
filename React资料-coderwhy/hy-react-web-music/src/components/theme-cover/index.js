@@ -1,13 +1,8 @@
-import React, { memo } from 'react';
+import React, { memo } from "react";
 
-import {
-  getSizeImage,
-  getCount
-} from "@/utils/format-utils";
+import { getSizeImage, getCount } from "@/utils/format-utils";
 
-import {
-  ThemeCoverWrapper
-} from "./style";
+import { ThemeCoverWrapper } from "./style";
 
 export default memo(function HYThemeCover(props) {
   const { info, right } = props;
@@ -26,12 +21,13 @@ export default memo(function HYThemeCover(props) {
           </div>
         </div>
       </div>
-      <div className="cover-bottom text-nowrap">
-        {info.name}
-      </div>
+      <div className="cover-bottom text-nowrap">{info.name}</div>
       <div className="cover-source">
-        by {info.copywriter || info.creator.nickname}
+        by
+        {info.copywriter !== null
+          ? info.copywriter
+          : "佚名" || info.creator.nickname}
       </div>
     </ThemeCoverWrapper>
-  )
-})
+  );
+});

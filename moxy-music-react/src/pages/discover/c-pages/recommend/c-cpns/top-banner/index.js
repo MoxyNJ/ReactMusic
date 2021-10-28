@@ -54,7 +54,7 @@ export default memo(function LJTopBanner() {
         <BannerLeft>
           <Carousel
             effect="fade"
-            // autoplay
+            autoplay
             ref={bannerRef}
             beforeChange={bannerChange}
           >
