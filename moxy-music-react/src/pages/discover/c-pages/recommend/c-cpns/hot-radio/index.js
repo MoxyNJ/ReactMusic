@@ -1,5 +1,11 @@
 import React, { memo } from "react";
 
-export default memo(function index() {
-  return <div></div>;
+import { HotRadioWrapper } from "./style";
+
+export default memo(function LJHotRadio() {
+  return (
+    <div>
+      <HotRadioWrapper>LJHotRadio</HotRadioWrapper>
+    </div>
+  );
 });

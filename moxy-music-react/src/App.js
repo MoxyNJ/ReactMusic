@@ -10,6 +10,7 @@ import store from "./store";
 // 组件导入
 import LJAppHeader from "@/components/app-header";
 import LJAppFooter from "@/components/app-footer";
+import LJAppPlayBar from "@/pages/player/app-player-bar";
 
 export default memo(function App() {
   return (
@@ -19,6 +20,7 @@ export default memo(function App() {
         <LJAppHeader />
         {renderRoutes(routes)}
         <LJAppFooter />
+        <LJAppPlayBar />
       </HashRouter>
     </Provider>
   );

@@ -4,6 +4,9 @@ import LJTopBanner from "./c-cpns/top-banner";
 import LJHotRecommend from "./c-cpns/hot-recommend";
 import LJNewAlbum from "./c-cpns/new-album";
 import LJRankingList from "./c-cpns/ranking-list";
+import LJUserLogin from "./c-cpns/user-login";
+import LJSettleSinger from "./c-cpns/settle-singer";
+import LJHotRadio from "./c-cpns/hot-radio";
 
 import {
   RecommendWrapper,
@@ -24,7 +27,9 @@ function LJRecommend(props) {
         </RecommendLeft>
 
         <RecommendRight>
-          <h2>你好，见到你很高兴</h2>
+          <LJUserLogin />
+          <LJSettleSinger />
+          <LJHotRadio />
         </RecommendRight>
       </Content>
     </RecommendWrapper>
