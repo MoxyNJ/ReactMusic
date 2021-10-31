@@ -5,6 +5,7 @@ export const SetterSongerWrapper = styled.div`
 
   .singer-list {
     .item {
+      border: 1px solid #e9e9e9;
       display: flex;
       height: 62px;
       margin-top: 14px;
@@ -36,6 +37,7 @@ export const SetterSongerWrapper = styled.div`
   }
 
   .apply-for {
+    margin-top: 14px;
     a {
       margin-left: 16px;
       border-radius: 4px;

@@ -8,6 +8,7 @@ import LJDjradio from "@/pages/discover/c-pages/djradio";
 import LJArtist from "@/pages/discover/c-pages/artist";
 import LJAlbum from "@/pages/discover/c-pages/album";
 
+import LJPlayer from "@/pages/player";
 import LJFriend from "@/pages/friend";
 import LJMine from "@/pages/mine";
 
@@ -55,6 +56,10 @@ const routes = [
         component: LJAlbum,
       },
     ],
+  },
+  {
+    path: "/player",
+    component: LJPlayer,
   },
   {
     path: "/mine",

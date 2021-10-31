@@ -1,4 +1,5 @@
 import { Map } from "immutable";
+import * as actionTypes from "./constants";
 
 const defaultState = Map({
   currentSong: {},
@@ -6,9 +7,11 @@ const defaultState = Map({
 
 function reducer(state = defaultState, action) {
   switch (action.type) {
-    case 0:
-      return 1;
+    case actionTypes.CHANGE_CURRENT_SONG:
+      return state.set("currentSong", action.currentSong);
     default:
       return state;
   }
 }
+
+export default reducer;

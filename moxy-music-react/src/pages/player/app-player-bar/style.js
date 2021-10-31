@@ -54,7 +54,10 @@ export const Control = styled.div`
   }
 
   .play:hover {
-    background-position: -40px -204px;
+    background-position: -40px
+      ${(props) => (props.isPlaying ? "-165px" : "-204px")};
+    /* -40px -204px; 播放 */
+    /* -40px -165px; 暂停 */
   }
 
   .next:hover {

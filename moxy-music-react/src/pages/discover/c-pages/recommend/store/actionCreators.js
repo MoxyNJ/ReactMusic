@@ -5,6 +5,7 @@ import {
   getHotRecommends,
   getNewAlbum,
   getTopList,
+  getArtistList,
 } from "@/services/recommend";
 
 // 更新组件的 Banner 信息
@@ -37,14 +38,14 @@ const changeOrgRankingListAction = (res) => ({
   orgRankingList: res.playlist,
 });
 
+const changeSettleSingersAction = (res) => ({
+  type: actionTypes.CHANGE_SETTLE_SINGERS,
+  settleSingers: res.artists,
+});
+
 // const changeHotRadiosAction = (res) => ({
 //   type: actionTypes.CHANGE_HOT_RADIOS,
 //   hotRadios: res,
-// });
-
-// const changeSettleSingersAction = (res) => ({
-//   type: actionTypes.CHANGE_SETTLE_SINGERS,
-//   settleSingers: res,
 // });
 
 // const changeUserLoginAction = (res) => ({
@@ -99,20 +100,20 @@ export const getRankingListAction = (idx) => {
   };
 };
 
+// 从网络异步获取 settle singer 信息
+export const getSettleSingersAction = (limit) => {
+  return (dispatch) => {
+    getArtistList(5, 5001).then((res) => {
+      dispatch(changeSettleSingersAction(res));
+    });
+  };
+};
+
 // // 从网络异步获取 hot radio 信息
 // export const getHotRadiosAction = (limit) => {
 //   return (dispatch) => {
 //     getHotRadio(limit).then((res) => {
 //       dispatch(changeHotRadiosAction(res));
-//     });
-//   };
-// };
-
-// // 从网络异步获取 settle singer 信息
-// export const getSettleSingersAction = (limit) => {
-//   return (dispatch) => {
-//     getSettleSingers(limit).then((res) => {
-//       dispatch(changeSettleSingersAction(res));
 //     });
 //   };
 // };

@@ -20,10 +20,12 @@ export function getCount(count) {
   }
 }
 
+// 即将播放的音乐，拼接一下
 export function getPlayUrl(id) {
   return `https://music.163.com/song/media/outer/url?id=${id}.mp3`;
 }
 
+// 格式化：时间
 export function formatDate(time, fmt) {
   let date = new Date(time);
 
@@ -56,10 +58,12 @@ function padLeftZero(str) {
   return ("00" + str).substr(str.length);
 }
 
+// 调用上面的时间格式化函数，
 export function formatMonthDay(time) {
   return formatDate(time, "MM月dd日");
 }
 
+// 调用上面的时间格式化函数，
 export function formatMinuteSecond(time) {
   return formatDate(time, "mm:ss");
 }

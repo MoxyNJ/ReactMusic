@@ -1,42 +1,125 @@
-import React, { memo } from "react";
-
+import React, { memo, useState, useEffect, useRef, useCallback } from "react";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { Slider } from "antd";
+
+import { getSizeImage, formatDate, getPlayUrl } from "@/utils/format-utils";
+import { getSongDetailAction } from "../store/actionCreators";
 
 import { PlaybarWrapper, Control, PlayInfo, Operator } from "./style";
 
 export default memo(function LJAppPlayBar() {
+  // component state：      组件内部的state
+  const [currentTime, setCurrentTime] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [isChanging, setIsChanging] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  // redux hooks：          获取state和dispatch
+  const { currentSong } = useSelector(
+    (state) => ({
+      currentSong: state.getIn(["player", "currentSong"]),
+    }),
+    shallowEqual
+  );
+
+  const dispatch = useDispatch();
+
+  const audioRef = useRef();
+
+  // other hooks：          react的hooks
+  useEffect(() => {
+    dispatch(getSongDetailAction(1858069368));
+  }, [dispatch]);
+
+  useEffect(() => {
+    audioRef.current.src = getPlayUrl(currentSong.id);
+  }, [currentSong.id]);
+
+  // other function：       组件内部的其他逻辑
+  // 判断如果有值，才会去值，否则为 undefined。防止报，且可以一个默认值，这里就没给了。
+  const picUrl = (currentSong.al && currentSong.al.picUrl) || "";
+  const songName = currentSong.name || "未知歌曲";
+  const singerName = (currentSong.ar && currentSong.ar[0].name) || "未知歌手";
+  const duration = currentSong.dt || 0;
+  const showDuration = formatDate(duration, "mm:ss");
+  const showCurrentTime = formatDate(currentTime * 1000, "mm:ss");
+
+  //handle function
+  const playMusic = useCallback(() => {
+    isPlaying ? audioRef.current.pause() : audioRef.current.play();
+    setIsPlaying(!isPlaying);
+  }, [isPlaying]);
+
+  // 播放条上的当前时间
+  const timeUpdate = (e) => {
+    const time = e.target.currentTime;
+    if (!isChanging) {
+      setCurrentTime(time);
+      setProgress(((currentTime * 1000) / duration) * 100);
+    }
+  };
+
+  // Slider是一个组定义组件，要往里面传递参数的时候，使用useCallback嵌套回调函数的时候，防止频繁重新定义
+  // 按下
+  const sliderChange = useCallback(
+    (value) => {
+      const time = ((value / 100) * duration) / 1000;
+      setProgress(value);
+      setCurrentTime(time);
+      setIsChanging(true);
+    },
+    [duration]
+  );
+  // 松开
+  const sliderAfterChange = useCallback(
+    (value) => {
+      const time = ((value / 100) * duration) / 1000;
+      audioRef.current.currentTime = time;
+      setCurrentTime(time);
+      setIsChanging(false);
+      if (!isPlaying) playMusic();
+    },
+    [duration, isPlaying, playMusic]
+  );
+
   return (
     <PlaybarWrapper className="sprite_playbar">
       <div className="content wrap-v2">
-        <Control>
+        <Control isPlaying={isPlaying}>
           <button className="sprite_playbar prev"></button>
-          <button className="sprite_playbar play"></button>
+          <button
+            className="sprite_playbar play"
+            onClick={(e) => playMusic()}
+          ></button>
           <button className="sprite_playbar next"></button>
         </Control>
         <PlayInfo>
           <div className="image">
-            <a href="/todo">
-              <img
-                src="http://p3.music.126.net/zM4Fhf2YNW6ocRoyYfYQ2g==/109951166333766652.jpg?param=34y34"
-                alt="音乐"
-              />
-            </a>
+            <NavLink to="/player">
+              <img src={getSizeImage(picUrl, 35)} alt="音乐" />
+            </NavLink>
           </div>
           <div className="info">
             <div className="song">
               <a href="/todo" className="song-name">
-                红豆
+                {songName}
               </a>
               <a href="/todo" className="singer-name">
-                要不要买菜
+                {singerName}
               </a>
             </div>
             <div className="progress">
-              <Slider defaultValue={30} tipFormatter={null} />
+              <Slider
+                tipFormatter={null}
+                value={progress}
+                onChange={sliderChange}
+                onAfterChange={sliderAfterChange}
+              />
               <div className="time">
-                <span className="now-time"></span>
-                <span className="divider"></span>
-                <span className="duration">04:30</span>
+                <span className="now-time">{showCurrentTime}</span>
+                <span className="divider">/</span>
+                <span className="duration">{showDuration}</span>
               </div>
             </div>
           </div>
@@ -53,6 +136,7 @@ export default memo(function LJAppPlayBar() {
             <button className="sprite_playbar btn playlist"></button>
           </div>
         </Operator>
+        <audio ref={audioRef} onTimeUpdate={timeUpdate} />
       </div>
     </PlaybarWrapper>
   );
