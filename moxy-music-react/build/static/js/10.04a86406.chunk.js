@@ -1,0 +1,2 @@
+(this["webpackJsonpmoxy-music-react"]=this["webpackJsonpmoxy-music-react"]||[]).push([[10],{267:function(c,e,t){"use strict";t.r(e);var s=t(0),i=t(4);e.default=Object(s.memo)((function(){return Object(i.jsx)("div",{children:Object(i.jsx)("h2",{children:"LJSongs"})})}))}}]);
+//# sourceMappingURL=10.04a86406.chunk.js.map
