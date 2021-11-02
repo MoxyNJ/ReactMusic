@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const OperationBarWrapper = styled.div`
   display: flex;
@@ -49,7 +49,7 @@ export const OperationBarWrapper = styled.div`
     margin-right: 6px;
     padding-right: 5px;
     background-position: right -1020px;
-    
+
     .icon {
       display: inline-block;
       height: 31px;
@@ -74,4 +74,4 @@ export const OperationBarWrapper = styled.div`
       background-position: 0 -1465px;
     }
   }
-`
+`;

@@ -68,6 +68,11 @@ body, textarea, select, input, button {
   margin: 0 auto;
 }
 
+.wrap-v2-1 {
+  width: 982px;
+  margin: 0 auto;
+}
+
 /* 添加calss即可添加属性，精灵图sprite方便添加 */
 /* 写的 0 9999xp 故意写的非常大，
    确保不会显示在页面中，方便覆盖数据后直接可用 */
