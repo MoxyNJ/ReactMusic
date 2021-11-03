@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const RankingListWrapper = styled.div`
   padding: 0 40px;
@@ -42,7 +42,7 @@ export const RankingListWrapper = styled.div`
           background-color: #fff;
         }
 
-        tr:nth-child(2n+1) {
+        tr:nth-child(2n + 1) {
           background-color: #f7f7f7;
         }
 
@@ -86,4 +86,4 @@ export const RankingListWrapper = styled.div`
       }
     }
   }
-`
+`;

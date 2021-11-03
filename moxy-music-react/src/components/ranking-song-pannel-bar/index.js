@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { RankingSongPannelBarWrapper } from "./style";
 
 export default memo(function LJRankingSongPannelBar(props) {
-  // const { favorTitle, shareTitle, downloadTitle, commentTitle } = props;
+  const { subscribedCount, shareCount, download, commentCount } = props;
 
   return (
     <RankingSongPannelBarWrapper>
@@ -19,16 +19,16 @@ export default memo(function LJRankingSongPannelBar(props) {
         </a>
       </span>
       <a href="/todo" className="item sprite_button">
-        <i className="icon favor-icon sprite_button">favorTitle</i>
+        <i className="icon favor-icon sprite_button">{subscribedCount}</i>
       </a>
       <a href="/todo" className="item sprite_button">
-        <i className="icon share-icon sprite_button">shareTitle</i>
+        <i className="icon share-icon sprite_button">{shareCount}</i>
       </a>
       <a href="/todo" className="item sprite_button">
-        <i className="icon download-icon sprite_button">downloadTitle</i>
+        <i className="icon download-icon sprite_button">{download}</i>
       </a>
       <a href="/todo" className="item sprite_button">
-        <i className="icon comment-icon sprite_button">commentTitle</i>
+        <i className="icon comment-icon sprite_button">{commentCount}</i>
       </a>
     </RankingSongPannelBarWrapper>
   );

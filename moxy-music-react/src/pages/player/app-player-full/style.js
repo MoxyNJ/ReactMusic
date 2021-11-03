@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import wrapBg from "@/assets/img/wrap-bg.png";
 
 export const PlayerWrapper = styled.div`
   .content {
-    background: url(${require("@/assets/img/wrap-bg.png")}) repeat-y;
+    background: url(${wrapBg}) repeat-y;
     background-color: #fff;
     display: flex;
   }

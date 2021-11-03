@@ -1,6 +1,11 @@
 import * as actionTypes from "./constants";
 
-import { getSongDetail, getLyric } from "@/services/player";
+import {
+  getSongDetail,
+  getLyric,
+  getSimiPlaylist,
+  getSimiSong,
+} from "@/services/player";
 import { getRandomNumber } from "@/utils/math-utils";
 import { parseLyric } from "@/utils/parse-lyric";
 
@@ -24,6 +29,17 @@ const changeCurrentSongIndexAction = (index) => ({
 const changelyricListAction = (lyricList) => ({
   type: actionTypes.CHANGE_LYRIC_LIST,
   lyricList,
+});
+
+// 网络请求：相似推荐
+const changeSimiPlaylistAction = (res) => ({
+  type: actionTypes.CHANGE_SIMI_PLAYLIST,
+  simiPlaylist: res.playlists,
+});
+
+const changeSimiSongsAction = (res) => ({
+  type: actionTypes.CHANGE_SIMI_SONGS,
+  simiSongs: res.songs,
 });
 
 // 对外暴露的区域
@@ -124,3 +140,26 @@ export const changePlayerVolumeAction = (volume) => ({
   type: actionTypes.CHANGE_PLAYER_VOLUME,
   volume,
 });
+
+// 播放页面的相似推荐
+export const getSimiPlaylistAction = () => {
+  return (dispatch, getState) => {
+    const id = getState().getIn(["player", "currentSong"]).id;
+    if (!id) return;
+
+    getSimiPlaylist(id).then((res) => {
+      dispatch(changeSimiPlaylistAction(res));
+    });
+  };
+};
+
+export const getSimiSongAction = () => {
+  return (dispatch, getState) => {
+    const id = getState().getIn(["player", "currentSong"]).id;
+    if (!id) return;
+
+    getSimiSong(id).then((res) => {
+      dispatch(changeSimiSongsAction(res));
+    });
+  };
+};

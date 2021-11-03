@@ -64,11 +64,16 @@ const route = [
         path: "/discover/album",
         component: LJAlbum,
       },
+      {
+        path: "/discover/player",
+        component: LJPlayer,
+      },
     ],
   },
   {
     path: "/player",
-    component: LJPlayer,
+    // 设置重定向到 discover
+    render: () => <Redirect to="/discover/player" />,
   },
   {
     path: "/mine",

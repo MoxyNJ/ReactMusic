@@ -222,6 +222,7 @@ export const Operator = styled.div`
       color: #ccc;
       width: 59px;
       background-position: -42px -68px;
+      line-height: 26px;
     }
 
     .playlist:hover {

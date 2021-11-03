@@ -7,3 +7,7 @@ export const CHANGE_CURRENT_LYRIC_INDEX = "player/CHANGE_CURRENT_LYRIC_INDEX";
 
 // 音量
 export const CHANGE_PLAYER_VOLUME = "player/CHANGE_PLAYER_VOLUME";
+
+// 相似推荐
+export const CHANGE_SIMI_PLAYLIST = "player/CHANGE_SIMI_PLAYLIST";
+export const CHANGE_SIMI_SONGS = "player/CHANGE_SIMI_SONGS";

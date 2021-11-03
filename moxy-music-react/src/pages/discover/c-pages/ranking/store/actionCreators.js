@@ -1,10 +1,10 @@
 import * as actionTypes from "./constants";
 
-import { getTopList, getRankingList } from "@/services/ranking";
+import { getListTitle, getRankingList } from "@/services/ranking";
 
-const changeTopListAction = (res) => ({
+const changeListTitleAction = (res) => ({
   type: actionTypes.CHANGE_LIST_TITLE,
-  topList: res.list,
+  listTitle: res.list,
 });
 
 const changePlayListAction = (res) => ({
@@ -13,20 +13,20 @@ const changePlayListAction = (res) => ({
 });
 
 // 外部暴露
-export const changeCurrentIndex = (index) => ({
+export const changeCurrentIndexAction = (index) => ({
   type: actionTypes.CHANGE_CURRENT_INDEX,
   currentIndex: index,
 });
 
-export const getTops = () => {
+export const getListTitleAction = () => {
   return (dispatch) => {
-    getTopList().then((res) => {
-      dispatch(changeTopListAction(res));
+    getListTitle().then((res) => {
+      dispatch(changeListTitleAction(res));
     });
   };
 };
 
-export const getRanking = (id) => {
+export const getRankingAction = (id) => {
   return (dispatch) => {
     getRankingList(id).then((res) => {
       dispatch(changePlayListAction(res));

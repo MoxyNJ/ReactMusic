@@ -7,7 +7,7 @@ const defaultState = Map({
   playList: {},
 });
 
-export default (state = defaultState, action) => {
+function reducer(state = defaultState, action) {
   switch (action.type) {
     case actionTypes.CHANGE_LIST_TITLE:
       return state.set("listTitle", action.listTitle);
@@ -18,4 +18,6 @@ export default (state = defaultState, action) => {
     default:
       return state;
   }
-};
+}
+
+export default reducer;

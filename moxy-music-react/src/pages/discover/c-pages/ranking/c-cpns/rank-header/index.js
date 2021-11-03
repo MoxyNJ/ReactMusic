@@ -1,26 +1,54 @@
 import React, { memo } from "react";
-import LJRankingSongPannelBar from "@/components/ranking-song-pannel-bar";
-import { LJRankingTitleWrapper } from "./style";
+import { shallowEqual, useSelector } from "react-redux";
 
+import { getSizeImage, formatMonthDay } from "@/utils/format-utils";
+
+import LJRankingSongPannelBar from "@/components/ranking-song-pannel-bar";
+
+import { LJRankingTitleWrapper } from "./style";
 export default memo(function LJRankingTitle() {
+  // redux hooks
+  const { playList, listTitle, currentIndex } = useSelector(
+    (state) => ({
+      playList: state.getIn(["ranking", "playList"]),
+      listTitle: state.getIn(["ranking", "listTitle"]),
+      currentIndex: state.getIn(["ranking", "currentIndex"]),
+    }),
+    shallowEqual
+  );
+
+  // react hooks
+
+  // other function
+
   return (
     <LJRankingTitleWrapper>
-      <div className="rankingTitle">
-        <div className="image">
-          <img
-            src="https://p1.music.126.net/sBzD11nforcuh1jdLSgX7g==/18740076185638788.jpg?param=150y150"
-            alt=""
-          />
+      <div className="image">
+        <img
+          src={getSizeImage(playList.coverImgUrl, 150)}
+          alt={playList.name}
+        />
+        <div className="mask sprite_cover"></div>
+      </div>
+      <div className="info">
+        <div className="name">{playList.name}</div>
+        <div className="time">
+          <i className="icon sprite_icon2"></i>
+          <span className="flash">
+            最近更新：{formatMonthDay(playList.trackUpdateTime)}
+          </span>
+          <span className="regular">
+            （
+            {listTitle[currentIndex] && listTitle[currentIndex].updateFrequency}
+            ）
+          </span>
         </div>
-        <div className="info">
-          <div className="name">飙升榜</div>
-          <div className="time">
-            <i className="icon sprite_icon2"></i>
-            <span className="flash">最近更新：10月28日</span>
-            <span className="regular">每周四更新</span>
-          </div>
-          <LJRankingSongPannelBar />
-        </div>
+        <LJRankingSongPannelBar
+          subscribedCount={`(${playList.subscribedCount})`}
+          shareCount={`(${playList.shareCount})`}
+          download="下载"
+          commentCount={`(${playList.commentCount})`}
+        />
       </div>
     </LJRankingTitleWrapper>
   );

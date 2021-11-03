@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const RankTitleWrapper = styled.div`
   cursor: pointer;
-  padding-top: 20px;
 
   h2 {
     display: inline-block;
     padding: 0 10px 8px 15px;
     width: 100%;
+    margin-top: 20px;
 
     font-family: simsun;
     font-weight: bold;

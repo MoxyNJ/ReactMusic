@@ -238,6 +238,8 @@ const defaultState = Map({
   lyricList: [], // 0 循环播放、 1随机、2单曲
   currentLyricIndex: 0,
   volume: 0,
+  simiPlaylist: [],
+  simiSongs: [],
 });
 
 function reducer(state = defaultState, action) {
@@ -256,6 +258,10 @@ function reducer(state = defaultState, action) {
       return state.set("currentLyricIndex", action.currentLyricIndex);
     case actionTypes.CHANGE_PLAYER_VOLUME:
       return state.set("volume", action.volume);
+    case actionTypes.CHANGE_SIMI_PLAYLIST:
+      return state.set("simiPlaylist", action.simiPlaylist);
+    case actionTypes.CHANGE_SIMI_SONGS:
+      return state.set("simiSongs", action.simiSongs);
     default:
       return state;
   }

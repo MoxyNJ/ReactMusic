@@ -1,18 +1,19 @@
-import React, {memo} from 'react';
+import React, { memo } from "react";
 import { useSelector, shallowEqual } from "react-redux";
 
 import { formatMonthDay } from "@/utils/format-utils";
 
-import HYSongOperationBar from '@/components/song-operation-bar';
-import {
-  RankingHeaderWrapper
-} from './style';
+import HYSongOperationBar from "@/components/song-operation-bar";
+import { RankingHeaderWrapper } from "./style";
 
 export default memo(function HYRankingHeader() {
   // redux
-  const state = useSelector(state => ({
-    playList: state.getIn(["ranking", "playList"]),
-  }), shallowEqual);
+  const state = useSelector(
+    (state) => ({
+      playList: state.getIn(["ranking", "playList"]),
+    }),
+    shallowEqual
+  );
   const topInfo = state.playList;
 
   return (
@@ -28,11 +29,13 @@ export default memo(function HYRankingHeader() {
           <div>最近更新：{formatMonthDay(topInfo.updateTime)}</div>
           <div className="update-f">（{"每日更新:TODO"}）</div>
         </div>
-        <HYSongOperationBar favorTitle={`(${topInfo.subscribedCount})`}
-                            shareTitle={`(${topInfo.shareCount})`}
-                            downloadTitle="下载"
-                            commentTitle={`(${topInfo.commentCount})`}/>
+        <HYSongOperationBar
+          favorTitle={`(${topInfo.subscribedCount})`}
+          shareTitle={`(${topInfo.shareCount})`}
+          downloadTitle="下载"
+          commentTitle={`(${topInfo.commentCount})`}
+        />
       </div>
     </RankingHeaderWrapper>
-  )
-})
+  );
+});
