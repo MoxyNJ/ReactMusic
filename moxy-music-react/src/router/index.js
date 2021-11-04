@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 const LJDiscover = lazy(() => import("../pages/discover"));
 const LJRecommend = lazy(() => import("@/pages/discover/c-pages/recommend"));
 const LJRanking = lazy(() => import("@/pages/discover/c-pages/ranking"));
-const LJSongs = lazy(() => import("@/pages/discover/c-pages/songs"));
+const LJSongiLst = lazy(() => import("@/pages/discover/c-pages/songList"));
 const LJDjradio = lazy(() => import("@/pages/discover/c-pages/djradio"));
 const LJArtist = lazy(() => import("@/pages/discover/c-pages/artist"));
 const LJAlbum = lazy(() => import("@/pages/discover/c-pages/album"));
@@ -13,16 +13,6 @@ const LJPlayer = lazy(() => import("@/pages/player/app-player-full"));
 const LJFriend = lazy(() => import("@/pages/friend"));
 const LJMine = lazy(() => import("@/pages/mine"));
 
-// import LJDiscover from "@/pages/discover";
-// import LJRecommend from "@/pages/discover/c-pages/recommend";
-// import LJRanking from "@/pages/discover/c-pages/ranking";
-// import LJSongs from "@/pages/discover/c-pages/songs";
-// import LJDjradio from "@/pages/discover/c-pages/djradio";
-// import LJArtist from "@/pages/discover/c-pages/artist";
-// import LJAlbum from "@/pages/discover/c-pages/album";
-// import LJPlayer from "@/pages/player";
-// import LJFriend from "@/pages/friend";
-// import LJMine from "@/pages/mine";
 const route = [
   {
     path: "/",
@@ -50,7 +40,7 @@ const route = [
       },
       {
         path: "/discover/songs",
-        component: LJSongs,
+        component: LJSongiLst,
       },
       {
         path: "/discover/djradio",

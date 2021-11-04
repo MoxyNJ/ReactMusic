@@ -44,11 +44,18 @@ export const footerLinks = [
   },
   {
     title: "意见反馈",
-    link: "#",
+    link: "#/",
+  },
+  {
+    title: "广告合作",
+    link: "mailto:yyyx@list.nie.netease.com",
   },
 ];
 
 export const footerImages = [
+  {
+    link: "https://web-amped.music.163.com/",
+  },
   {
     link: "https://music.163.com/st/userbasic#/auth",
   },

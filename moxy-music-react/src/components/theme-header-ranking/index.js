@@ -3,7 +3,7 @@ import React, { memo } from "react";
 import { HeaderRankingWrapper } from "./style";
 export default memo(function LJThemeHeaderRanking(props) {
   const { titleName, titleNumber, titlePlayer } = props;
-  console.log(props);
+
   return (
     <HeaderRankingWrapper>
       <div className="left">

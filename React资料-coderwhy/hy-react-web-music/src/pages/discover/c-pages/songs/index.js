@@ -1,23 +1,22 @@
-import React, { useEffect, memo } from 'react';
+import React, { useEffect, memo } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
-import { 
+import {
   getCategory,
   getSongList,
-  changeCurrentCategoryAction
+  changeCurrentCategoryAction,
 } from "./store/actionCreators";
 
 import HYSongsHeader from "./c-cpns/songs-header";
-import HYSongsList from './c-cpns/songs-list';
-import {
-  SongsWrapper
-} from "./style"
+import HYSongsList from "./c-cpns/songs-list";
+import { SongsWrapper } from "./style";
 
 export default memo(function HYSongs() {
   // redux
   const dispatch = useDispatch();
   const cat = useLocation().cat;
+  console.log(useLocation());
 
   useEffect(() => {
     dispatch(changeCurrentCategoryAction(cat));
@@ -27,12 +26,12 @@ export default memo(function HYSongs() {
   useEffect(() => {
     dispatch(getCategory());
     dispatch(getSongList(0));
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <SongsWrapper className="wrap-v2">
-      <HYSongsHeader/>
-      <HYSongsList/>
+      <HYSongsHeader />
+      <HYSongsList />
     </SongsWrapper>
-  )
-})
+  );
+});

@@ -6,3 +6,6 @@ export const NEW_ALBUMS_LIMIT = 10;
 
 // 初始音量
 export const INIT_VOLUME = 20;
+
+// 歌单：每页默认的展示数量
+export const PER_PAGE_NUMBER = 35;

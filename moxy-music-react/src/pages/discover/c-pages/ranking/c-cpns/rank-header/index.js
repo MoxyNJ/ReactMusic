@@ -8,7 +8,11 @@ import LJRankingSongPannelBar from "@/components/ranking-song-pannel-bar";
 import { LJRankingTitleWrapper } from "./style";
 export default memo(function LJRankingTitle() {
   // redux hooks
-  const { playList, listTitle, currentIndex } = useSelector(
+  const {
+    playList = [],
+    listTitle,
+    currentIndex,
+  } = useSelector(
     (state) => ({
       playList: state.getIn(["ranking", "playList"]),
       listTitle: state.getIn(["ranking", "listTitle"]),
