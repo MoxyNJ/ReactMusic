@@ -37,7 +37,7 @@ export default memo(function LJHotRecommend() {
         ></LJThemeHeaderRCM>
         <div className="recommend-list">
           {hotRecommends.map((item, index) => {
-            return <LJSongsCover key={item.id} info={item} />;
+            return <LJSongsCover key={item.id} info={item} size={"140"} />;
           })}
         </div>
       </HotRecommendWrapper>

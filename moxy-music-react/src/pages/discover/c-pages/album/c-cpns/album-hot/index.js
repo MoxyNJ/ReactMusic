@@ -4,7 +4,7 @@ import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getHotAlbumsAction } from "../../store/actionCreators";
 
 import LJAlbumCover from "@/components/album-cover";
-import LJThemHeaderAlbum from "@/components/theme-header-album";
+import LJThemHeader from "@/components/theme-header";
 import { HotAlbumWrapper } from "./style";
 
 export default memo(function LJAlbumHot() {
@@ -22,14 +22,17 @@ export default memo(function LJAlbumHot() {
 
   return (
     <HotAlbumWrapper>
-      <LJThemHeaderAlbum title="热门新碟" />
+      <LJThemHeader title="热门新碟" />
       <div className="album-list">
+        {/* 只要前10个 */}
         {hotAlbums.slice(0, 10).map((item, index) => {
           return (
             <LJAlbumCover
-              size={"130px"}
-              width={"153px"}
-              bgp={"-845px"}
+              size={130}
+              width={153}
+              height={153}
+              bgp={-845}
+              elemSize={"big"}
               key={item.id}
               info={item}
             />

@@ -5,7 +5,7 @@ import { getCount, getSizeImage } from "@/utils/format-utils";
 import { SongsCoverWrapper } from "./style";
 
 export default memo(function LJSongsCover(props) {
-  const { info, right } = props;
+  const { info, right, size } = props;
 
   let by = "by 热门推荐";
   if (info.creator && info.creator.nickname) {
@@ -16,7 +16,7 @@ export default memo(function LJSongsCover(props) {
     <SongsCoverWrapper right={right}>
       <div className="cover-top">
         <img
-          src={getSizeImage(info.picUrl ? info.picUrl : info.coverImgUrl, 140)}
+          src={getSizeImage(info.picUrl ? info.picUrl : info.coverImgUrl, size)}
           alt={info.name}
         />
         <div className="cover sprite_cover">

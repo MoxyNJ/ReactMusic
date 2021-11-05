@@ -19,6 +19,10 @@ const changeTopTotalAction = (total) => ({
   total: total,
 });
 
+export const changeTopAreaAction = (area) => ({
+  type: actionTypes.CHANGE_TOP_AREA,
+  area: area,
+});
 // 异步action
 // 获得热门新碟数据
 export const getHotAlbumsAction = () => {
@@ -32,8 +36,10 @@ export const getHotAlbumsAction = () => {
 // 获得全部新碟数据
 // page - 1
 export const getTopAlbumsAction = (page) => {
-  return (dispatch) => {
-    getTopAlbums(30, (page - 1) * PER_PAGE_NUMBER).then((res) => {
+  return (dispatch, getState) => {
+    // 获取 专辑地区
+    const area = getState().getIn(["album", "topArea"]);
+    getTopAlbums(area, 30, (page - 1) * PER_PAGE_NUMBER).then((res) => {
       dispatch(changeTopAlbumAction(res));
       dispatch(changeTopTotalAction(res.total));
     });

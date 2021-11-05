@@ -57,6 +57,7 @@ export default memo(function LJTopBanner() {
             autoplay
             ref={bannerRef}
             beforeChange={bannerChange}
+            dots={{ className: "dots" }}
           >
             {topBanners.map((item, index) => {
               return (

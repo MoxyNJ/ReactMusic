@@ -2,9 +2,12 @@ import React, { memo, useEffect, useState } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 
 import { PER_PAGE_NUMBER } from "@/common/contants";
-import { getTopAlbumsAction } from "../../store/actionCreators";
+import {
+  getTopAlbumsAction,
+  changeTopAreaAction,
+} from "../../store/actionCreators";
 
-import LJThemeHeaderAlbum from "@/components/theme-header-album";
+import LJThemeHeader from "@/components/theme-header";
 import LJAlbumCover from "@/components/album-cover";
 import LJPagination from "@/components/songs-pagination";
 import { TopAlbumWrapper } from "./style";
@@ -23,6 +26,7 @@ export default memo(function LJAlbumTop() {
 
   useEffect(() => {
     dispatch(getTopAlbumsAction(1));
+    dispatch(changeTopAreaAction());
   }, [dispatch]);
 
   const onPageChange = (page) => {
@@ -32,14 +36,16 @@ export default memo(function LJAlbumTop() {
 
   return (
     <TopAlbumWrapper>
-      <LJThemeHeaderAlbum title="全部新碟" />
+      <LJThemeHeader title="全部新碟" subtitle={true} />
       <div className="album-list">
         {topAlbums.map((item, index) => {
           return (
             <LJAlbumCover
-              size={"130px"}
-              width={"153px"}
-              bgp={"-845px"}
+              size={130}
+              width={153}
+              height={153}
+              bgp={-845}
+              elemSize={"big"}
               key={item.id}
               info={item}
             />

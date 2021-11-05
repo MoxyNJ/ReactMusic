@@ -1,7 +1,15 @@
 import styled from "styled-components";
 
 export const AlbumWrapper = styled.div`
+  /* props: 
+      size: 130,
+      width: 153, 
+      height: 153,
+      bgp: -845,  
+  */
+
   width: ${(props) => props.width + "px"};
+  margin-bottom: ${(props) => (props.elemSize !== "big" ? "0" : "15px")};
 
   .album-image {
     position: relative;
@@ -27,11 +35,12 @@ export const AlbumWrapper = styled.div`
 
     .play {
       position: absolute;
+      right: 10px;
       bottom: 5px;
-      right: 22px;
-      width: 22px;
-      height: 22px;
-      background-position: 0 ${(props) => props.play + "px"};
+      left: 94px;
+      width: 28px;
+      height: 28px;
+      background-position: 0 -140px;
       text-indent: -9999px;
       display: none;
     }
@@ -45,10 +54,14 @@ export const AlbumWrapper = styled.div`
     width: ${(props) => props.size};
     .name {
       color: #000;
+      /* 不允许折行 */
       white-space: nowrap;
+      /* 超出包含块边界后，用省略号表示 */
       text-overflow: ellipsis;
       overflow: hidden;
-      margin-top: 3px;
+      margin: ${(props) =>
+        props.elemSize !== "big" ? "3px 0 0 0" : "8px 0 2px"};
+      font-size: ${(props) => (props.elemSize !== "big" ? "12px" : "14px")};
     }
 
     .artist {

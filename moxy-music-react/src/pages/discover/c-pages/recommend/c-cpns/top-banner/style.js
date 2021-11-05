@@ -33,6 +33,30 @@ export const BannerLeft = styled.div`
       margin: 0 -20px;
     }
   }
+  .dots {
+    bottom: 5px;
+    li {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+
+      button {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #aaa;
+      }
+    }
+
+    li.slick-active {
+      width: 20px;
+      top: 1px;
+      button {
+        background-color: #c20c0c;
+      }
+    }
+  }
 `;
 
 export const BannerRight = styled.a.attrs({

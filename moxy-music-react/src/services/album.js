@@ -8,10 +8,11 @@ export function getHotAlbums() {
 }
 
 // 获取：全部新碟
-export function getTopAlbums(limit, offset) {
+export function getTopAlbums(area = "ALL", limit, offset) {
   return request({
     url: "/top/album",
     params: {
+      area,
       limit,
       offset,
     },
