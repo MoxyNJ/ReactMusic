@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import {
@@ -12,6 +12,9 @@ import LJSongsMain from "./c-cpns/songs-main";
 
 import { SongListWrapper } from "./style";
 export default memo(function LJSongList() {
+  // state
+  const [showCategory, setShowCategory] = useState(false);
+
   // redux hooks
   const dispatch = useDispatch();
 
@@ -25,8 +28,16 @@ export default memo(function LJSongList() {
   }, [dispatch]);
 
   return (
-    <SongListWrapper className="wrap-v2">
-      <LJSongsHeader />
+    <SongListWrapper
+      className="wrap-v2"
+      onClick={(e) => {
+        setShowCategory(false);
+      }}
+    >
+      <LJSongsHeader
+        showCategory={showCategory}
+        setShowCategory={setShowCategory}
+      />
       <LJSongsMain />
     </SongListWrapper>
   );

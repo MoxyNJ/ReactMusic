@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
 import { useSelector, shallowEqual } from "react-redux";
 
 import LJSongsCategory from "../songs-category";
@@ -8,9 +8,10 @@ import {
   HeaderLeftWrapper,
   HeaderRightWrapper,
 } from "./style";
-export default memo(function LJSongsHeader() {
+export default memo(function LJSongsHeader(props) {
   // props
-  const [showCategory, setShowCategory] = useState(false);
+  // const [showCategory, setShowCategory] = useState(false);
+  const { showCategory, setShowCategory } = props;
 
   // redux hooks
   const { currentCategory } = useSelector(
@@ -26,7 +27,10 @@ export default memo(function LJSongsHeader() {
         <span className="title">{currentCategory}</span>
         <button
           className="select"
-          onClick={(e) => setShowCategory(!showCategory)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowCategory(!showCategory);
+          }}
         >
           <span>选择分类</span>
           <i className="sprite_icon2"></i>

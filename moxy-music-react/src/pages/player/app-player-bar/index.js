@@ -18,14 +18,17 @@ import {
 
 import { PlaybarWrapper, Control, PlayInfo, Operator } from "./style";
 
-export default memo(function LJAppPlayBar() {
-  // component state：      组件内部的state
+export default memo(function LJAppPlayBar(props) {
+  // props
+  const {
+    volumnHandle: { showVolumn, setShowVolumn },
+    pannelHandle: { showPannel, setShowPannel },
+  } = props;
+
   const [currentTime, setCurrentTime] = useState(0);
   const [progress, setProgress] = useState(0);
   const [isChanging, setIsChanging] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [showVolume, setShowVolume] = useState(false);
-  const [showPanel, setShowPanel] = useState(false);
 
   // redux hooks：          获取state和dispatch
   const {
@@ -231,7 +234,7 @@ export default memo(function LJAppPlayBar() {
           <div className="right sprite_playbar">
             <button
               className="sprite_playbar btn volume"
-              onClick={(e) => setShowVolume(!showVolume)}
+              onClick={(e) => setShowVolumn(!showVolumn)}
             ></button>
             <button
               className="sprite_playbar btn loop"
@@ -241,7 +244,7 @@ export default memo(function LJAppPlayBar() {
             ></button>
             <button
               className="sprite_playbar btn playlist"
-              onClick={(e) => setShowPanel(!showPanel)}
+              onClick={(e) => setShowPannel(!showPannel)}
             >
               {playList.length}
             </button>
@@ -254,8 +257,8 @@ export default memo(function LJAppPlayBar() {
             handleMusicEnded();
           }}
         />
-        {showVolume && <LJPlayerVolume />}
-        {showPanel && <LJPlayerPanel />}
+        {showVolumn && <LJPlayerVolume />}
+        {showPannel && <LJPlayerPanel />}
       </div>
     </PlaybarWrapper>
   );

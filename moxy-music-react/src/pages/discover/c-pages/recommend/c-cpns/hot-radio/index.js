@@ -14,7 +14,7 @@ export default memo(function LJHotRadio() {
         <div className="radio-list">
           {hotRadios.map((item, index) => {
             return (
-              <div key={item.id} className="item">
+              <div key={item.name} className="item">
                 <a href="/todo" className="image">
                   <img src={getSizeImage(item.picUrl, 40)} alt={item.name} />
                 </a>
