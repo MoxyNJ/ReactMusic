@@ -1,8 +1,9 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import singer_sprite from "@/assets/img/singer.png";
 
 export const CategoryWrapper = styled.div`
   width: 180px;
-  padding: 50px 10px 40px;
+  padding: 35px 9px 40px;
   border: 1px solid #d3d3d3;
   border-width: 0 1px;
 
@@ -10,7 +11,7 @@ export const CategoryWrapper = styled.div`
 
   .section {
     border-bottom: 1px solid #d3d3d3;
-    padding: 10px 0;
+    padding: 15px 0 5px;
 
     &:last-of-type {
       border-bottom: none;
@@ -20,13 +21,11 @@ export const CategoryWrapper = styled.div`
       height: 25px;
       padding-left: 14px;
       font-size: 16px;
-      margin-bottom: 5px;
+      margin-bottom: 1px;
       font-family: "Microsoft Yahei";
     }
   }
-
-  
-`
+`;
 
 export const CategoryItem = styled.div`
   width: 160px;
@@ -38,7 +37,7 @@ export const CategoryItem = styled.div`
 
   &.active {
     span {
-      color: red;
+      color: #c20c0c;
       background-position: 0 0;
     }
   }
@@ -47,10 +46,11 @@ export const CategoryItem = styled.div`
     display: inline-block;
     width: 160px;
     padding-left: 27px;
-    background: url(${require("@/assets/img/singer_sprite.png")}) no-repeat 0 -30px;
+    background: url(${singer_sprite}) no-repeat 0 -30px;
     cursor: pointer;
 
     &:hover {
       text-decoration: underline;
     }
-`
+  }
+`;

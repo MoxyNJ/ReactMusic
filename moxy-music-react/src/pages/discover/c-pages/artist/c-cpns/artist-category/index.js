@@ -1,8 +1,8 @@
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import classNames from "classnames";
 
-import { artistCategories } from "@/services/local-data";
+import { artistCategories } from "@/common/local-data";
 
 import {
   changeCurrentAreaAction,
@@ -27,17 +27,12 @@ export default memo(function LJArtistCategory() {
     dispatch(changeCurrentTypeAction(type));
   };
 
-  // 初始化 操作
-  // useEffect(() => {
-  //   dispatch(changeCurrentAreaAction(-1));
-  //   dispatch(changeCurrentTypeAction(artistCategories[0]));
-  // }, [dispatch]);
-
-  // render jsx
+  // 用一个高阶函数，把每个大类中的小类提取了出来
   const renderArtist = (artists, area) => {
     return (
       <div>
         {artists.map((item, index) => {
+          // 判断是否被选中，要大类area和小类type都相符合。
           const isSelect =
             currentArea === area && currentType.type === item.type;
           return (
@@ -45,6 +40,7 @@ export default memo(function LJArtistCategory() {
               key={item.name}
               className={classNames({ active: isSelect })}
             >
+              {/* 如果选中后，就会dispatch area & type，从而让list组件获取详细歌手数据 */}
               <span onClick={(e) => selectArtist(area, item)}>{item.name}</span>
             </CategoryItem>
           );
@@ -55,6 +51,7 @@ export default memo(function LJArtistCategory() {
 
   return (
     <CategoryWrapper>
+      {/* 左侧导航的数据是本地提前保存的，直接拿来用。 */}
       {artistCategories.map((item, index) => {
         return (
           <div className="section" key={item.area}>

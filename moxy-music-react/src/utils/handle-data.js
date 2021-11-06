@@ -36,6 +36,8 @@ export function handleSongsCategory(data) {
 }
 
 // 获取歌手字母类别
+// return:  28) ['-1', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0']
+// 开头的 -1 代表全部，结尾的 0 代表其他。
 export function generateSingerAlpha() {
   var alphabets = ["-1"];
   var start = "A".charCodeAt(0);
@@ -45,7 +47,6 @@ export function generateSingerAlpha() {
   }
 
   alphabets.push("0");
-
   return alphabets;
 }
 

@@ -34,13 +34,16 @@ export const AlbumWrapper = styled.div`
     }
 
     .play {
+      /* size=130 */
       position: absolute;
-      right: 10px;
-      bottom: 5px;
-      left: 94px;
-      width: 28px;
-      height: 28px;
-      background-position: 0 -140px;
+
+      bottom: ${(props) => (props.size === 130 ? 5 + "px" : 4 + "px")};
+      left: ${(props) => (props.size === 130 ? 94 + "px" : 72 + "px")};
+      width: ${(props) => (props.size === 130 ? 28 + "px" : 22 + "px")};
+      height: ${(props) => (props.size === 130 ? 28 + "px" : 22 + "px")};
+      background-position: 0
+        ${(props) => (props.size === 130 ? -140 + "px" : -110 + "px")};
+
       text-indent: -9999px;
       display: none;
     }

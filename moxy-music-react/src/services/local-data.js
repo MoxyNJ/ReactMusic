@@ -44,11 +44,18 @@ export const footerLinks = [
   },
   {
     title: "意见反馈",
-    link: "#",
+    link: "#/",
+  },
+  {
+    title: "广告合作",
+    link: "mailto:yyyx@list.nie.netease.com",
   },
 ];
 
 export const footerImages = [
+  {
+    link: "https://web-amped.music.163.com/",
+  },
   {
     link: "https://music.163.com/st/userbasic#/auth",
   },
@@ -94,7 +101,6 @@ export const dicoverMenu = [
 // 热门主播
 export const hotRadios = [
   {
-    id: "001",
     picUrl:
       "http://p1.music.126.net/H3QxWdf0eUiwmhJvA4vrMQ==/1407374893913311.jpg",
     name: "陈立",
@@ -102,7 +108,6 @@ export const hotRadios = [
     url: "/user/home?id=278438485",
   },
   {
-    id: "002",
     picUrl:
       "http://p1.music.126.net/y5-sM7tjnxnu_V9LWKgZlw==/7942872001461517.jpg",
     name: "DJ艳秋",
@@ -110,7 +115,6 @@ export const hotRadios = [
     url: "/user/home?id=91239965",
   },
   {
-    id: "003",
     picUrl:
       "http://p1.music.126.net/6cc6lgOfQTo6ovNnTHPyJg==/3427177769086282.jpg",
     name: "国家大剧院古典音乐频道",
@@ -118,7 +122,6 @@ export const hotRadios = [
     url: "/user/home?id=324314596",
   },
   {
-    id: "004",
     picUrl:
       "http://p1.music.126.net/xa1Uxrrn4J0pm_PJwkGYvw==/3130309604335651.jpg",
     name: "谢谢收听",
@@ -126,7 +129,6 @@ export const hotRadios = [
     url: "/user/home?id=1611157",
   },
   {
-    id: "005",
     picUrl:
       "http://p1.music.126.net/slpd09Tf5Ju82Mv-h8MP4w==/3440371884651965.jpg",
     name: "DJ晓苏",
@@ -191,7 +193,7 @@ export const artistCategories = [
         type: 2,
       },
       {
-        name: "欧美组合乐队",
+        name: "欧美组合/乐队",
         url: "/discover/artist?id=2003",
         type: 3,
       },
@@ -254,7 +256,7 @@ export const artistCategories = [
         type: 2,
       },
       {
-        name: "其他组合乐队",
+        name: "其他组合/乐队",
         url: "/discover/artist?id=4003",
         type: 3,
       },

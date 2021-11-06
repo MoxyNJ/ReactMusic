@@ -32,6 +32,7 @@ export const Control = styled.div`
   .next {
     width: 28px;
     height: 28px;
+    margin-top: 3px;
   }
 
   .prev {
@@ -70,8 +71,9 @@ export const Control = styled.div`
 
 export const PlayInfo = styled.div`
   display: flex;
-  width: 642px;
+  width: 580px;
   align-items: center;
+  margin-right: 20px;
 
   .image {
     width: 34px;
@@ -81,17 +83,18 @@ export const PlayInfo = styled.div`
 
   .info {
     flex: 1;
-    color: #a1a1a1;
     margin-left: 10px;
 
     .song {
-      color: #e1e1e1;
       position: relative;
       top: 8px;
       left: 8px;
+      .song-name {
+        color: #e8e8e8;
+      }
 
       .singer-name {
-        color: #a1a1a1;
+        color: #9b9b9b;
         margin-left: 10px;
       }
     }
@@ -101,7 +104,7 @@ export const PlayInfo = styled.div`
       align-items: center;
 
       .ant-slider {
-        width: 493px;
+        width: 470px;
         margin-right: 10px;
 
         .ant-slider-rail {
@@ -130,7 +133,10 @@ export const PlayInfo = styled.div`
 
       .time {
         .now-time {
-          color: #e1e1e1;
+          color: #a1a1a1;
+        }
+        .duration {
+          color: #797979;
         }
         .divider {
           margin: 0 3px;
@@ -144,8 +150,13 @@ export const Operator = styled.div`
   display: flex;
   position: relative;
   top: 5px;
+  padding-bottom: 6px;
 
+  .left {
+    padding-right: 8px;
+  }
   .btn {
+    margin-left: 3px;
     width: 25px;
     height: 25px;
     cursor: pointer;
@@ -180,6 +191,7 @@ export const Operator = styled.div`
     align-items: center;
     width: 126px;
     padding-left: 13px;
+    padding-bottom: 3px;
     background-position: -147px -248px;
 
     .volume {
@@ -217,9 +229,9 @@ export const Operator = styled.div`
     }
 
     .playlist {
-      padding-left: 18px;
+      padding-left: 26px;
       text-align: center;
-      color: #ccc;
+      color: #666;
       width: 59px;
       background-position: -42px -68px;
       line-height: 26px;

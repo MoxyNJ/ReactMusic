@@ -193,7 +193,7 @@ export const artistCategories = [
         type: 2,
       },
       {
-        name: "欧美组合乐队",
+        name: "欧美组合/乐队",
         url: "/discover/artist?id=2003",
         type: 3,
       },
@@ -256,7 +256,7 @@ export const artistCategories = [
         type: 2,
       },
       {
-        name: "其他组合乐队",
+        name: "其他组合/乐队",
         url: "/discover/artist?id=4003",
         type: 3,
       },

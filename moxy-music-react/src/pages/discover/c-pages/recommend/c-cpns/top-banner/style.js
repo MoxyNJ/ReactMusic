@@ -31,6 +31,7 @@ export const BannerLeft = styled.div`
     .image {
       height: 100%;
       margin: 0 -20px;
+      cursor: pointer;
     }
   }
   .dots {

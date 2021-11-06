@@ -8,7 +8,6 @@ import LJThemeHeaderRCM from "@/components/theme-header-rcm";
 import LJSongsCover from "@/components/songs-cover";
 
 import { HotRecommendWrapper } from "./style";
-
 export default memo(function LJHotRecommend() {
   // component state
   const { hotRecommends } = useSelector(

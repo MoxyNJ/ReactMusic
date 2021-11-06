@@ -36,7 +36,6 @@ const changeArtistListAction = (artistList) => ({
 export const getArtistListAction = (area, type, alpha) => {
   return (dispatch) => {
     getArtistList(area, type, alpha).then((res) => {
-      console.log(res.artists);
       dispatch(changeArtistListAction(res.artists));
     });
   };
