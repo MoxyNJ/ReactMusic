@@ -16,4 +16,5 @@ export const PlayerLeft = styled.div`
 export const PlayerRight = styled.div`
   width: 270px;
   padding: 20px 40px 40px 30px;
+  border-right: 1px solid rgb(225 225 225);
 `;
