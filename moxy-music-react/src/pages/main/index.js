@@ -22,7 +22,6 @@ export default memo(function LJMain() {
   const handleShow = () => {
     setShowVolumn(false);
     setShowPannel(false);
-    console.log("App, handleShow");
   };
 
   return (
