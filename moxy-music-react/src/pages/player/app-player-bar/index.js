@@ -57,7 +57,7 @@ export default memo(function LJAppPlayBar(props) {
   // other hooks：          react的hooks
   // 初始化音量
   useEffect(() => {
-    dispatch(changePlayerVolumeAction(INIT_VOLUME / 100));
+    dispatch(changePlayerVolumeAction(INIT_VOLUME));
   }, [dispatch]);
   useEffect(() => {
     dispatch(getSongDetailAction(1858069368));
