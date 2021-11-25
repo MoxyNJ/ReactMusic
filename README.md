@@ -4,7 +4,7 @@
 
 ### 歌词内容滚动：
 
-![ebfc32c0-dbe6-46e3-b85c-2a7c0b36dfd2](C:/Users/moxyN/Downloads/ebfc32c0-dbe6-46e3-b85c-2a7c0b36dfd2.png)
+![ebfc32c0-dbe6-46e3-b85c-2a7c0b36dfd2](README/ebfc32c0-dbe6-46e3-b85c-2a7c0b36dfd2-16378369652601.png)
 
 ### 排行榜：
 
