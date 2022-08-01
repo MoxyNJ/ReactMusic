@@ -1,1 +1,0 @@
-{"version":3,"sources":["pages/discover/c-pages/album/index.js"],"names":["memo"],"mappings":"4HAAA,yBAEeA,0BAAK,WAClB,OACE,8BACE","file":"static/js/6.8932be1e.chunk.js","sourcesContent":["import React, { memo } from \"react\";\r\n\r\nexport default memo(function LJAlbum() {\r\n  return (\r\n    <div>\r\n      <h2>LJAlbum</h2>\r\n    </div>\r\n  );\r\n});\r\n"],"sourceRoot":""}

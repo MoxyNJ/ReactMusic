@@ -1,0 +1,3 @@
+export const CHANGE_CATEGORY = "ranking/CHANGE_CATEGORY";
+export const CHANGE_CURRENT_CATEGORY = "ranking/CHANGE_CURRENT_CATEGORY";
+export const CHANGE_SONG_LIST = "ranking/CHANGE_SONG_LIST";

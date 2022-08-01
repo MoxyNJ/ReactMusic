@@ -1,0 +1,13 @@
+export const CHANGE_PLAY_LIST = "player/CHANGE_PLAY_LIST";
+export const CHANGE_CURRENT_SONG = "player/CHANGE_CURRENT_SONG";
+export const CHANGE_CURRENT_SONG_INDEX = "player/CHANGE_CURRENT_SONG_INDEX";
+export const CHANGE_SEQUENCE = "player/SEQUENCE";
+export const CHANGE_LYRIC_LIST = "player/CHANGE_LYRIC_LIST";
+export const CHANGE_CURRENT_LYRIC_INDEX = "player/CHANGE_CURRENT_LYRIC_INDEX";
+
+// 音量
+export const CHANGE_PLAYER_VOLUME = "player/CHANGE_PLAYER_VOLUME";
+
+// 相似推荐
+export const CHANGE_SIMI_PLAYLIST = "player/CHANGE_SIMI_PLAYLIST";
+export const CHANGE_SIMI_SONGS = "player/CHANGE_SIMI_SONGS";
