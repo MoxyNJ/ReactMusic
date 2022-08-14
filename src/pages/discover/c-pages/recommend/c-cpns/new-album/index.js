@@ -43,7 +43,7 @@ export default memo(function LJNewAlbum() {
               {[0, 1].map((item) => {
                 return (
                   <div key={item} className="page">
-                    {newAlbums.slice(item * 5, (item + 1) * 5).map((num) => {
+                    {newAlbums?.slice(item * 5, (item + 1) * 5).map((num) => {
                       return (
                         <LJAlbumCover
                           key={num.id}
