@@ -35,7 +35,7 @@ export default memo(function LJHotRecommend() {
           keywords={["华语", "流行", "摇滚", "民谣", "电子"]}
         ></LJThemeHeaderRCM>
         <div className="recommend-list">
-          {hotRecommends.map((item, index) => {
+          {hotRecommends?.map((item, index) => {
             return <LJSongsCover key={item.id} info={item} size={"140"} />;
           })}
         </div>
