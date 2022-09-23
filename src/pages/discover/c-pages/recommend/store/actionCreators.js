@@ -22,7 +22,7 @@ const changeHotRecommendsAction = (res) => ({
 
 const changeNewAlbumsAction = (res) => ({
   type: actionTypes.CHANGE_NEW_ALBUMS,
-  newAlbums: res.weekData,
+  newAlbums: res.albums,
 });
 
 const changeUpRankingListAction = (res) => ({

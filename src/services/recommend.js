@@ -21,7 +21,7 @@ export function getHotRecommends(limit) {
 //新碟上架
 export function getNewAlbum(limit, offset) {
   return request({
-    url: "/top/album",
+    url: "/album/new",
     params: {
       limit,
       offset,
